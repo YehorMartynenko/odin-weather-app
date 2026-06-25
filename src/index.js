@@ -1,3 +1,6 @@
 import "./style/styles.css";
-import { WeatherController } from "./controller.js";
-WeatherController("warsaw");
+import { AppController } from "./app-controller.js";
+//WeatherController("warsaw");
+
+const app = new AppController();
+app.initialLoad();

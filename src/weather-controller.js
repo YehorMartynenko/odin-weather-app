@@ -32,6 +32,14 @@ async function getWeatherForLocation(location) {
   }
 }
 
+function getCurrentForecastData(forecastData) {
+  return forecastData.currentConditions;
+}
+
+function getWeekForecastData(forecastData) {
+  return forecastData.days.slice(0, 7);
+}
+
 function getCurrentForecast(currentForecastData) {
   return {
     tempreture: currentForecastData.temp,
@@ -61,12 +69,4 @@ function getWeekForecast(weekForecastData) {
   });
 
   return weekForecast;
-}
-
-function getCurrentForecastData(forecastData) {
-  return forecastData.currentConditions;
-}
-
-function getWeekForecastData(forecastData) {
-  return forecastData.days.slice(0, 7);
 }
