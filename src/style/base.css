@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400..800&display=swap");
+
+:root {
+  --white: rgba(236, 230, 240, 1);
+  --grey: #49454f;
+  --blue: #006dfc;
+  --card-blue: rgba(105, 172, 227, 0.85);
+  --background-color-day: linear-gradient(to bottom, #69ace3 29%, #6155f5 58%);
+  --green: #65e84d;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Baloo Da 2", sans-serif;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+#content {
+  min-height: 100vh;
+  background: var(--background-color-day);
+}

@@ -6,7 +6,7 @@ export class AppController {
   }
 
   initialLoad() {
-    this.loadSearchPage;
+    this.loadSearchPage();
   }
 
   loadSearchPage() {

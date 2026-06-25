@@ -1,14 +1,19 @@
+import "./style/search-page.css";
 import { createEl } from "./dom-helpers.js";
 import { WeatherController } from "./weather-controller.js";
 import searchImage from "./img/search-icon.svg";
+
 export function renderSearchPage() {
   const content = document.getElementById("content");
+  content.innerHTML = "";
 
-  const title = createEl("p", {
+  const title = createEl("h1", {
+    className: "intro-title",
     textContent: "Welcome to Weather Here",
   });
 
   const subtitle = createEl("p", {
+    className: "intro-subtitle",
     textContent: "Enter a city name to check a forecast",
   });
 
@@ -26,7 +31,7 @@ export function renderSearchPage() {
     attrs: {
       name: "search_field",
       type: "text",
-      placeholder: "Search..",
+      placeholder: "Search forecast..",
     },
   });
 
@@ -38,24 +43,36 @@ export function renderSearchPage() {
     },
   });
 
+  const searchBtn = createEl(
+    "button",
+    {
+      id: "search-btn",
+      attrs: {
+        type: "button",
+        "aria-label": "Search",
+      },
+    },
+    searchIcon,
+  );
+
   const wrapperSearch = createEl(
     "div",
     {
       className: "wrapper-search",
     },
     searchField,
-    searchIcon,
+    searchBtn,
   );
 
   const rootEl = createEl(
-    "div",
+    "main",
     {
       id: "root-el",
+      className: "search-page",
     },
     wrapperIntro,
     wrapperSearch,
   );
-
   rootEl.addEventListener("click", (event) => {
     const search = event.target.closest("#search-icon");
 
@@ -65,5 +82,3 @@ export function renderSearchPage() {
   });
   content.append(rootEl);
 }
-
-renderSearchPage();
