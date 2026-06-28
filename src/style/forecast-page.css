@@ -74,6 +74,7 @@
   background: var(--card-blue);
   border-radius: 14px;
   padding: 2.2rem;
+  border: 1px solid lightblue;
 
   display: flex;
   flex-direction: column;
@@ -112,15 +113,12 @@
   color: white;
 }
 
-.forecast-page .air-quality-good {
-  color: var(--green);
-}
-
 .forecast-page .forecast-panel {
   background: var(--card-blue);
   border-radius: 14px;
   padding: 1.5rem;
   min-height: 600px;
+  border: 1px solid lightblue;
 
   display: flex;
   flex-direction: column;

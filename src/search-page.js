@@ -1,6 +1,6 @@
 import "./style/search-page.css";
-import { createEl } from "./dom-helpers.js";
-import { WeatherController } from "./weather-controller.js";
+import { createEl, createSearchBar } from "./dom-helpers.js";
+import { renderForecastPage } from "./forecast-page.js";
 import searchImage from "./img/search-icon.svg";
 
 export function renderSearchPage() {
@@ -26,43 +26,7 @@ export function renderSearchPage() {
     subtitle,
   );
 
-  const searchField = createEl("input", {
-    id: "search-field",
-    attrs: {
-      name: "search_field",
-      type: "text",
-      placeholder: "Search forecast..",
-    },
-  });
-
-  const searchIcon = createEl("img", {
-    id: "search-icon",
-    attrs: {
-      src: searchImage,
-      alt: "",
-    },
-  });
-
-  const searchBtn = createEl(
-    "button",
-    {
-      id: "search-btn",
-      attrs: {
-        type: "button",
-        "aria-label": "Search",
-      },
-    },
-    searchIcon,
-  );
-
-  const wrapperSearch = createEl(
-    "div",
-    {
-      className: "wrapper-search",
-    },
-    searchField,
-    searchBtn,
-  );
+  const wrapperSearch = createSearchBar(searchImage);
 
   const rootEl = createEl(
     "main",
@@ -77,7 +41,8 @@ export function renderSearchPage() {
     const search = event.target.closest("#search-icon");
 
     if (search) {
-      WeatherController(searchField.value);
+      const searchField = document.getElementById("search-field");
+      renderForecastPage(searchField.value);
     }
   });
   content.append(rootEl);
